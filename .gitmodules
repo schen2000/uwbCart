@@ -1,0 +1,3 @@
+[submodule "dep/emblib"]
+	path = dep/emblib
+	url = git@github.com:simviu/emblib.git
