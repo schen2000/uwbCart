@@ -1,3 +1,0 @@
-[submodule "dep/emblib"]
-	path = dep/emblib
-	url = git@github.com:schen2000/emblib.git
