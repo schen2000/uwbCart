@@ -5,7 +5,11 @@ echo "Current branch : $BR"
 git pull
 git submodule update --init --recursive
 
-cd dep/emblib
+cd dep/vsnlib
+git checkout $BR
+git pull
+
+cd ../emblib
 git checkout $BR
 git pull
 
