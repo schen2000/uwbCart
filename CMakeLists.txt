@@ -5,5 +5,5 @@ SET(CMAKE_CXX_STANDARD 14)
 
 
 add_subdirectory(dep/emblib)
-add_subdirectory(dep/vsnlib)
+
 
