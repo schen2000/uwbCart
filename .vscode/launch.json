@@ -11,7 +11,7 @@
             "program": "${workspaceFolder}/build/cartApp",
             "args": [
                 "uwb", "init", 
-                "port=/dev/ttyUSB0",
+                "port=/dev/tty.usbserial-0001",
                 "baud=115200"
             ],
             "stopAtEntry": false,
