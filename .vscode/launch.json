@@ -9,7 +9,11 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/cartApp",
-            "args": [],
+            "args": [
+                "uwb", "init", 
+                "port=/dev/ttyUSB0",
+                "baud=115200"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/rundir/",
             "environment": [],

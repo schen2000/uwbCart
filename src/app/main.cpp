@@ -11,7 +11,9 @@ int main(int argc, char ** argv)
     bool ok = true;
     
     CartApp app; 
-    ok &= app.run(argc, argv);
+    ok &= app.init();
+    if(ok)
+        ok &= app.run(argc, argv);
     if(ok) log_i("  OK, done!");
     else log_e("Failed");
     return ok?0:1;

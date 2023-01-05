@@ -4,7 +4,8 @@ using namespace cart;
 
 void CartApp::init_cmd()
 {
-
+    assert(p_uwb_!=nullptr);
+    Cmd::add("uwb", p_uwb_);
 }
 
 //-----
