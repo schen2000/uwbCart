@@ -1,6 +1,6 @@
 #include "cart/cart.h"
 
-using namespace vrp;
+using namespace cart;
 using namespace ut;
 
 int main(int argc, char ** argv)

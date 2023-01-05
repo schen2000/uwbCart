@@ -1,4 +1,5 @@
 build/
+rundir/
 rosws/
 output/
 tmp/

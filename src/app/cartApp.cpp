@@ -1,17 +1,17 @@
-#include "vrp/vrpApp.h"
-#include "arm/armLib.h"
+#include "cart/cart.h"
 
-using namespace vrp;
+using namespace cart;
 
-void VrpApp::init_cmd()
+void CartApp::init_cmd()
 {
-    Cmd::add("arm", mkSp<arm::ArmCmd>());
+
 }
 
 //-----
-bool VrpApp::init()
+bool CartApp::init()
 {
+    log_i("CartApp Init...");
     init_cmd();
-
+    log_i("CartApp Init done");
     return true;
 }
