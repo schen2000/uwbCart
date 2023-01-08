@@ -9,9 +9,14 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/cartApp",
-            "args": [
+            "args_mac": [
                 "uwb", "init", 
                 "port=/dev/tty.usbserial-0001",
+                "baud=115200"
+            ],
+            "args": [
+                "uwb", "init", 
+                "port=/dev/ttyUSB0",
                 "baud=115200"
             ],
             "stopAtEntry": false,
