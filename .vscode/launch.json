@@ -9,6 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/cartApp",
+            "args_console":[],
             "args_mac": [
                 "uwb", "init", 
                 "port=/dev/tty.usbserial-0001",

@@ -9,11 +9,15 @@ namespace cart{
     public:
         UwbMng(){ init_cmd(); }
     protected:
+        struct Cntx{
+            bool isOn = false;
+        }; Cntx cntx_;
         void init_cmd();
         bool init(CStrs& args);
+        bool run_at(CStrs& args);
         Sp<emb::Serial> p_serial_ = emb::Serial::create();
     };
-
+ 
     //-----------
     class CartApp : public Cmd{
     public:
