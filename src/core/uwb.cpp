@@ -42,7 +42,7 @@ bool UwbMng::run_at(CStrs& args)
     auto& srl = *p_serial_;
     srl.write(scmd +"\r\n");
 
-    sys::sleep(1);
+    //sys::sleep(1);
 
     string sln;
     if(!srl.readln(sln))
@@ -80,7 +80,7 @@ bool UwbMng::init(CStrs& args)
     auto& srl = *p_serial_;
     srl.write("getver\r\n");
     string sln;
-    sys::sleep(1);
+    //sys::sleep(1);
     if(!srl.readln(sln))
     {
         log_e("No reponse from device");

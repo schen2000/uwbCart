@@ -5,6 +5,8 @@
         "string": "cpp",
         "atomic": "cpp",
         "fstream": "cpp",
-        "sstream": "cpp"
+        "sstream": "cpp",
+        "filesystem": "cpp",
+        "iosfwd": "cpp"
     }
 }
