@@ -10,12 +10,12 @@
             "request": "launch",
             "program": "${workspaceFolder}/build/cartApp",
             "args_console":[],
-            "args_mac": [
+            "args": [
                 "uwb", "init", 
                 "port=/dev/tty.usbserial-0001",
                 "baud=115200"
             ],
-            "args": [
+            "args_linux": [
                 "uwb", "init", 
                 "port=/dev/ttyUSB0",
                 "baud=115200"
