@@ -7,6 +7,8 @@
         "fstream": "cpp",
         "sstream": "cpp",
         "filesystem": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "cerrno": "cpp",
+        "random": "cpp"
     }
 }
