@@ -2,6 +2,14 @@
 
 using namespace cart;
 
+namespace{
+    struct LC{
+        bool en_init_testCmd = false;
+    }; LC lc_;
+}
+
+//----
+
 void UwbMng::init_cmd()
 {
     Cmd::sHelp_ = "UWB device cmds, [init|st]";
@@ -77,17 +85,20 @@ bool UwbMng::init(CStrs& args)
     
     //----
     // AT cmd getver
-    auto& srl = *p_serial_;
-    srl.write("getver\r\n");
-    string sln;
-    //sys::sleep(1);
-    if(!srl.readln(sln))
+    if(lc_.en_init_testCmd)
     {
-        log_e("No reponse from device");
-        return false;
+        auto& srl = *p_serial_;
+        srl.write("getver\r\n");
+        string sln;
+        //sys::sleep(1);
+        if(!srl.readln(sln))
+        {
+            log_e("No reponse from device");
+            return false;
+        }
+        log_i("AT cmd 'getver':");
+        log_i(sln);
     }
-    log_i("AT cmd 'getver':");
-    log_i(sln);
 
     //----
     cntx_.isOn = true;
