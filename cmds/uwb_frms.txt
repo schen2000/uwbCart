@@ -1,0 +1,3 @@
+uwb init port=/dev/tty.usbserial-0001 baud=115200
+uwb frms
+

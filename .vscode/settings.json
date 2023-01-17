@@ -9,6 +9,13 @@
         "filesystem": "cpp",
         "iosfwd": "cpp",
         "cerrno": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "__tree": "cpp",
+        "iomanip": "cpp",
+        "istream": "cpp",
+        "locale": "cpp",
+        "limits": "cpp",
+        "stop_token": "cpp",
+        "streambuf": "cpp"
     }
 }

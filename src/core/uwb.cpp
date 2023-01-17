@@ -1,6 +1,7 @@
 #include "cart/cart.h"
 
 using namespace cart;
+using namespace uwb;
 
 namespace{
     struct LC{
@@ -8,14 +9,41 @@ namespace{
     }; LC lc_;
 }
 
+
+//-----
+string Frm::str()const
+{
+    stringstream s;
+    s << "{";
+    s << "len:" << (int)len;
+    s << ", timer:" << (int)timer;
+    s << ", tagid:" << (int)tagid;
+    s << ", ancid:" << (int)ancid;
+    s << ", seq:" << (int)seq;
+    s << ", \nrawrang:[";
+    
+    int i=0;
+    for(auto& r : rawrange)
+    {
+        if(i!=0) s << ", ";
+        s << r;
+        i++;
+    }
+    s << "]\n";
+    s << "}";        
+    return s.str();
+
+}
+
 //----
 
 void UwbMng::init_cmd()
 {
-    Cmd::sHelp_ = "UWB device cmds, [init|st]";
+    Cmd::sHelp_ = "UWB device cmds";
 
-    Cmd::add("st", mkSp<Cmd>("show status",
+    Cmd::add("frms", mkSp<Cmd>("(read frms)",
     [&](CStrs& args)->bool{ 
+        run_frms(args);
         return true;
     }));
 
@@ -105,3 +133,24 @@ bool UwbMng::init(CStrs& args)
     log_i("UWB init OK");
     return true;
 }
+
+//----
+bool UwbMng::run_frms(CStrs& args)
+{
+    assert(p_serial_!=nullptr);
+    auto& srl = *p_serial_;
+    int i=0;
+    while(1)
+    {
+        Frm frm;
+        auto p = reinterpret_cast<uint8_t*>(&frm);
+        Buf b(p, sizeof(Frm));
+        srl.readFrm("CmdM:4", b);
+        log_i("Frm:" + to_string(i));
+        log_i(frm.str());
+        log_i("Frm end\n");
+        i++;
+    }
+    return true;
+}
+
