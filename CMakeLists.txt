@@ -31,5 +31,9 @@ target_link_libraries(cartCore
 #--- vrpApp
 FILE(GLOB  SRC_APP src/app/*.cpp)
 add_executable(cartApp ${SRC_APP})
-target_link_libraries(cartApp   cartCore embLib)
+target_link_libraries(cartApp   
+	cartCore 
+	embLib
+	#	-lstdc++fs
+	)
 
