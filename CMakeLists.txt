@@ -34,7 +34,7 @@ add_executable(cartApp ${SRC_APP})
 target_link_libraries(cartApp   
 	cartCore 
 	embLib
-	-lpigpio
+	#-lpigpio
 	#	-lstdc++fs
 	)
 
