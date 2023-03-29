@@ -51,7 +51,7 @@ namespace cart{
     }
  
     //-----------
-    class CartApp : public Cmd{
+    class CartCmd : public Cmd{
     public:
         bool init();
     protected:

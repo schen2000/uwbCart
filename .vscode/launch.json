@@ -15,10 +15,8 @@
                 "port=/dev/tty.usbserial-0001",
                 "baud=115200"
             ],
-            "args": [
-                "-f", 
-                "../cmds/uwb_frms.txt"
-            ],
+            "#args": [ "--file",  "../cmds/uwb_frms.txt" ],
+            "args": [ "--console" ],
             "args_linux": [
                 "uwb", "init", 
                 "port=/dev/ttyUSB0",

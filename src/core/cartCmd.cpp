@@ -2,18 +2,18 @@
 
 using namespace cart;
 
-void CartApp::init_cmd()
+void CartCmd::init_cmd()
 {
     assert(p_uwb_!=nullptr);
     Cmd::add("uwb", p_uwb_);
-    Cmd::add("io", mkSp<emb::IO_Cmd>());
+    Cmd::add("emb", mkSp<emb::EmbCmd>());
 }
 
 //-----
-bool CartApp::init()
+bool CartCmd::init()
 {
-    log_i("CartApp Init...");
+    log_i("CartCmd Init...");
     init_cmd();
-    log_i("CartApp Init done");
+    log_i("CartCmd Init done");
     return true;
 }

@@ -10,10 +10,10 @@ int main(int argc, char ** argv)
     log_i("cur_dir:"+sys::pwd());
     bool ok = true;
     
-    CartApp app; 
-    ok &= app.init();
+    CartCmd cmd; 
+    ok &= cmd.init();
     if(ok)
-        ok &= app.run(argc, argv);
+        ok &= cmd.run(argc, argv);
     if(ok) log_i("  OK, done!");
     else log_e("Failed");
     return ok?0:1;
