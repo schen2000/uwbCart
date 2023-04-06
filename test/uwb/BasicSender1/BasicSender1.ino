@@ -40,6 +40,8 @@ DW1000Time sentTime;
 void setup() {
   // DEBUG monitoring
   Serial.begin(115200);
+  delay(2000);
+  //---
   Serial.println(F("### DW1000-arduino-sender-test ###"));
   // initialize the driver
   DW1000.begin(PIN_IRQ, PIN_RST);
