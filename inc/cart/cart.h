@@ -1,7 +1,6 @@
 #pragma once
 #include "emb/embLib.h"
 
-
 namespace cart{
     using namespace ut;
     //-------
@@ -33,6 +32,8 @@ namespace cart{
 
             string str()const;
         };
+       
+       
         //-----------
         class UwbMng : public Cmd{
         public:
@@ -49,6 +50,22 @@ namespace cart{
             Sp<emb::Serial> p_serial_ = emb::Serial::create();
         };
     } // namespace uwb
+
+    //------
+    class NavMng{
+    public:
+        struct Cfg{
+
+        };
+        bool init();
+        struct Data{
+        }; 
+    protected:
+        Data data_;
+        
+        Sp<emb::UWB> p_uwb_ = nullptr;
+
+    };
     //------
     namespace drive{
         
