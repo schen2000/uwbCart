@@ -55,8 +55,8 @@ namespace cart{
     class NavMng{
     public:
         struct Cfg{
-
-        };
+            bool load(const string& sf);
+        }; Cfg cfg_;
         bool init();
         struct Data{
         }; 
