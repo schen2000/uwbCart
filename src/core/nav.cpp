@@ -14,8 +14,9 @@ bool NavMng::Cfg::load(const string& sf)
         log_ef(sf);
         return false;
     }
-    //----
     bool ok = true;
+    /*
+    //----
     try{
         Json::Reader rdr;
         Json::Value jd;
@@ -40,6 +41,7 @@ bool NavMng::Cfg::load(const string& sf)
         log_e("exception caught:"+string(e.what()));
         return false;
     }
+    */
     //---
     if(!ok)
         log_e(" Vision::cfg::load() json parsing failed");
