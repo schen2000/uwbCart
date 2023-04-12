@@ -9,8 +9,8 @@
 #include "DW1000Ranging.h"
 
 // connection pins
-const uint8_t PIN_RST = 6; // reset pin
-const uint8_t PIN_IRQ = 2; // irq pin
+const uint8_t PIN_RST = 7; // reset pin
+const uint8_t PIN_IRQ = 28; // irq pin
 const uint8_t PIN_SS = SS; // spi select pin
 
 void setup() {
@@ -26,6 +26,21 @@ void setup() {
   //DW1000Ranging.useRangeFilter(true);
   
 
+// general configuration
+  DW1000.newConfiguration();
+  DW1000.setDefaults();
+  DW1000.setDeviceAddress(6);
+  DW1000.setNetworkId(10);
+  DW1000.enableMode(DW1000.MODE_LONGDATA_RANGE_LOWPOWER);
+  DW1000.commitConfiguration();
+  Serial.println(F("Committed configuration ..."));
+
+  //---
+  
+
+  //we start the module as an anchor
+  DW1000Ranging.startAsAnchor("82:17:5B:D5:A9:9A:E2:9C", DW1000.MODE_LONGDATA_RANGE_ACCURACY);
+
   //---
   // DEBUG chip info and registers pretty printed
   char msg[128];
@@ -38,9 +53,6 @@ void setup() {
   DW1000.getPrintableDeviceMode(msg);
   Serial.print("Device mode: "); Serial.println(msg);
 
-
-  //we start the module as an anchor
-  DW1000Ranging.startAsAnchor("82:17:5B:D5:A9:9A:E2:9C", DW1000.MODE_LONGDATA_RANGE_ACCURACY);
 }
 
 void loop() {
