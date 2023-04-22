@@ -1,0 +1,24 @@
+﻿<launch>
+  
+  
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+
+    <arg name="world_name" value="$(find uwbcart_ros)/worlds/tinyroom.world"/>
+
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+
+  <!-- bot -->
+  <param name="cube_para" command="$(find xacro)/xacro --inorder $(find uwbcart_ros)/urdf/cubeBot.urdf.xacro" />
+  <node name="spawn_bot" pkg="gazebo_ros" type="spawn_model" args="-urdf -model bot -x -3 -y 2.5 -z 1.2 -param cube_para" />
+
+  <!-- Load rqt_graph to visualize this packages ROS graph-->
+  <node name="rqt_graph" pkg="rqt_graph" type="rqt_graph"/>
+  
+</launch>
