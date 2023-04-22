@@ -3,4 +3,7 @@ rundir/
 rosws/
 output/
 tmp/
+rosws/
+ros2ws/
+__pycache__/
 
