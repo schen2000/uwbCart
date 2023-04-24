@@ -25,7 +25,7 @@
 // the setup function runs once when you press reset or power the board
 void setup() {
   delay(1000);
-  Serial.begin(115200);
+  Serial.begin(921600);
   delay(1000);
   Serial.print("Hellow World\n");
   // initialize digital pin LED_BUILTIN as an output.
