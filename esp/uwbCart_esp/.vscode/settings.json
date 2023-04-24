@@ -1,0 +1,15 @@
+{
+    "idf.adapterTargetName": "esp32",
+    "idf.espIdfPath": "/home/schen/opt/esp/esp-idf",
+    "idf.pythonBinPath": "/home/schen/opt/esp/esp-idf/python_env/idf5.0_py3.8_env/bin/python",
+    "idf.toolsPath": "/home/schen/opt/esp/esp-idf",
+    "idf.customExtraPaths": "/home/schen/opt/esp/esp-idf/tools/xtensa-esp-elf-gdb/11.2_20220823/xtensa-esp-elf-gdb/bin:/home/schen/opt/esp/esp-idf/tools/riscv32-esp-elf-gdb/11.2_20220823/riscv32-esp-elf-gdb/bin:/home/schen/opt/esp/esp-idf/tools/xtensa-esp32-elf/esp-2022r1-11.2.0/xtensa-esp32-elf/bin:/home/schen/opt/esp/esp-idf/tools/xtensa-esp32s2-elf/esp-2022r1-11.2.0/xtensa-esp32s2-elf/bin:/home/schen/opt/esp/esp-idf/tools/xtensa-esp32s3-elf/esp-2022r1-11.2.0/xtensa-esp32s3-elf/bin:/home/schen/opt/esp/esp-idf/tools/riscv32-esp-elf/esp-2022r1-11.2.0/riscv32-esp-elf/bin:/home/schen/opt/esp/esp-idf/tools/esp32ulp-elf/2.35_20220830/esp32ulp-elf/bin:/home/schen/opt/esp/esp-idf/tools/openocd-esp32/v0.11.0-esp32-20221026/openocd-esp32/bin:/home/schen/opt/esp/esp-idf/tools/esp-rom-elfs/20220823",
+    "idf.customExtraVars": {
+        "OPENOCD_SCRIPTS": "/home/schen/opt/esp/esp-idf/tools/openocd-esp32/v0.11.0-esp32-20221026/openocd-esp32/share/openocd/scripts",
+        "ESP_ROM_ELF_DIR": "/home/schen/opt/esp/esp-idf/tools/esp-rom-elfs/20220823/"
+    },
+    "idf.gitPath": "git",
+    "idf.flashType": "UART",
+    "idf.port": "/dev/ttyUSB0"
+    
+}

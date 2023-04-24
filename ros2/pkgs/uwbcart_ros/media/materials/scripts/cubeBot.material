@@ -1,0 +1,5 @@
+material cubeBot/main
+{  receive_shadows off
+   technique { pass {
+      texture_unit { texture cubeBotTex/main.png } } }  }
+      

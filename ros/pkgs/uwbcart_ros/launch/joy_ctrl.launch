@@ -1,0 +1,24 @@
+<launch>
+
+
+    <!-- joystick support -->
+    <!-- 
+        For Gamepad, on right stick, 
+        ( Need always press button[0], which is 'A' )
+    -->
+    <node name="joy2twist" pkg="teleop_twist_joy" type="teleop_node">
+        <param name="axis_linear"  value="3"/>
+        <param name="axis_angular" value="2"/>
+        <param name="scale_linear" value="3"/>
+        <param name="scale_angular" value="3"/>
+    </node>
+
+    <node name="joy" pkg="joy" type="joy_node">
+    </node>
+  <!-- cmd_vel steering, for GUI joystick-->
+    <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
+        <param name="default_topic" value="/cmd_vel"/>
+    </node>
+  <!-- bot -->
+
+</launch>

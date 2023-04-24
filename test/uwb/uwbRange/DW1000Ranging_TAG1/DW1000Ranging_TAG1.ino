@@ -9,9 +9,10 @@
 #include "DW1000Ranging.h"
 
 // connection pins
-const uint8_t PIN_RST = 9; // reset pin
-const uint8_t PIN_IRQ = 2; // irq pin
-const uint8_t PIN_SS = SS; // spi select pin
+const uint8_t PIN_RST = D6; // reset pin
+const uint8_t PIN_IRQ = D2; // irq pin
+//const uint8_t PIN_SS = SS; // spi select pin
+const uint8_t PIN_SS = D7; // spi select pin
 
 void setup() {
   Serial.begin(115200);
@@ -25,6 +26,28 @@ void setup() {
   //Enable the filter to smooth the distance
   //DW1000Ranging.useRangeFilter(true);
   
+// general configuration
+  DW1000.newConfiguration();
+  DW1000.setDefaults();
+  DW1000.setDeviceAddress(6);
+  DW1000.setNetworkId(10);
+  DW1000.enableMode(DW1000.MODE_LONGDATA_RANGE_LOWPOWER);
+  DW1000.commitConfiguration();
+  Serial.println(F("Committed configuration ..."));
+
+  //---
+  // DEBUG chip info and registers pretty printed
+  char msg[128];
+  DW1000.getPrintableDeviceIdentifier(msg);
+  Serial.print("Device ID: "); Serial.println(msg);
+  DW1000.getPrintableExtendedUniqueIdentifier(msg);
+  Serial.print("Unique ID: "); Serial.println(msg);
+  DW1000.getPrintableNetworkIdAndShortAddress(msg);
+  Serial.print("Network ID & Device Address: "); Serial.println(msg);
+  DW1000.getPrintableDeviceMode(msg);
+  Serial.print("Device mode: "); Serial.println(msg);
+
+
   //we start the module as a tag
   DW1000Ranging.startAsTag("7D:00:22:EA:82:60:3B:9C", DW1000.MODE_LONGDATA_RANGE_ACCURACY);
 }

@@ -48,9 +48,10 @@ void setup() {
   delay(2000);
   DW1000.begin(PIN_IRQ, PIN_RST);
   DW1000.select(PIN_SS);
+
+  //---
   char sId[128]; sId[0]='\0';
-  char sUid[128];sUid[0]='\0';
-  
+  char sUid[128];sUid[0]='\0';  
   DW1000.getPrintableDeviceIdentifier(sId);
   DW1000.getPrintableExtendedUniqueIdentifier(sUid);
   Serial.println(F("DW1000 initialized ..."));
