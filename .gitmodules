@@ -1,6 +1,6 @@
 [submodule "dep/emblib"]
 	path = dep/emblib
 	url = git@github.com:simviu/emblib.git
-[submodule "dep/vsnlib"]
-	path = dep/vsnlib
-	url = git@github.com:simviu/vsnlib.git
+[submodule "dep/utlib"]
+	path = dep/utlib
+	url = git@github.com:simviu/utlib.git
