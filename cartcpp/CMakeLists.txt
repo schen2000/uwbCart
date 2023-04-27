@@ -21,6 +21,7 @@ include_directories(
 FILE(GLOB  SRC_CORE src/core/*.cpp)
 add_library(cartCore ${SRC_CORE} )
 target_link_libraries(cartCore   
+    utLib
     -fPIC
     pthread
     )
