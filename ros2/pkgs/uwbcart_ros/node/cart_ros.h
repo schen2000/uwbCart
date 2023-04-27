@@ -12,3 +12,12 @@
 
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
+
+namespace cart{
+    class CartNode : Cmd{
+    public:
+        bool run();
+    protected:
+
+    };
+}
