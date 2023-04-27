@@ -1,4 +1,4 @@
-project(rostest)
+project(uwbcart_node)
 cmake_minimum_required(VERSION 3.4)
 
 
@@ -16,7 +16,7 @@ add_subdirectory(cartcpp)
 include_directories( 
     inc
     ${catkin_INCLUDE_DIRS} 
-    ${OpenCV_INCLUDE_DIRS} 
+ #   ${OpenCV_INCLUDE_DIRS} 
     $ENV{utLib_DIR}/inc
     $ENV{embLib_DIR}/inc
     ${EIGEN3_INCLUDE_DIR}
@@ -29,18 +29,11 @@ include_directories(
 
 #---- cart node
 FILE(GLOB  SRC_CART_NODE *.cpp )
-add_executable(vision_node  ${SRC_VISION} )
-target_link_libraries(vision_node 
+add_executable(uwbcart_node  ${SRC_CART_NODE} )
+target_link_libraries(uwbcart_node 
     ${catkin_LIBRARIES}
-    ${OpenCV_LIBRARIES}
-    vrpCore
+    cartCore
     )
 
 
-#---- cam server node
-FILE(GLOB  SRC_CAMSVR camserver/*.cpp src/common/*.cpp)
-add_executable(camserver_node  ${SRC_CAMSVR} )
-target_link_libraries(camserver_node 
-    ${catkin_LIBRARIES}
-    vsnLib
-    )
+    

@@ -1,15 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 project(uwbcart_ros)
 
-# Default to C99
-if(NOT CMAKE_C_STANDARD)
-  set(CMAKE_C_STANDARD 99)
-endif()
-
-# Default to C++14
-if(NOT CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 14)
-endif()
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -21,17 +12,17 @@ find_package(ament_cmake REQUIRED)
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
-add_executable(uwbcart_node src/uwbcart_node.cpp)
-target_include_directories(uwbcart_node PUBLIC
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:include>)
+#add_executable(uwbcart_node src/uwbcart_node.cpp)
+#target_include_directories(uwbcart_node PUBLIC
+#  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+#  $<INSTALL_INTERFACE:include>)
 
-install(TARGETS uwbcart_node
-  DESTINATION lib/${PROJECT_NAME})
-install(DIRECTORY launch
-  DESTINATION share/${PROJECT_NAME})
-install(DIRECTORY worlds
-  DESTINATION share/${PROJECT_NAME})
+#install(TARGETS uwbcart_node
+#  DESTINATION lib/${PROJECT_NAME})
+#install(DIRECTORY launch
+#  DESTINATION share/${PROJECT_NAME})
+#install(DIRECTORY worlds
+#  DESTINATION share/${PROJECT_NAME})
 
 
 if(BUILD_TESTING)
@@ -45,4 +36,7 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
+
 ament_package()
+
+add_subdirectory(node)
