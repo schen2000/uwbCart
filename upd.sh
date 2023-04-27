@@ -5,7 +5,7 @@ echo "Current branch : $BR"
 git pull
 git submodule update --init --recursive
 
-cd dep/vsnlib
+cd dep/utlib
 git checkout $BR
 git pull
 
