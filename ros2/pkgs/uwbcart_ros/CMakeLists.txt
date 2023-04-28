@@ -19,10 +19,12 @@ find_package(ament_cmake REQUIRED)
 
 #install(TARGETS uwbcart_node
 #  DESTINATION lib/${PROJECT_NAME})
-#install(DIRECTORY launch
-#  DESTINATION share/${PROJECT_NAME})
-#install(DIRECTORY worlds
-#  DESTINATION share/${PROJECT_NAME})
+install(DIRECTORY launch
+  DESTINATION share/${PROJECT_NAME})
+install(DIRECTORY urdf
+  DESTINATION share/${PROJECT_NAME})
+install(DIRECTORY worlds
+  DESTINATION share/${PROJECT_NAME})
 
 
 if(BUILD_TESTING)

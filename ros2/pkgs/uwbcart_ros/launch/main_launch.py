@@ -52,7 +52,24 @@ def generate_launch_description():
     #                    arguments=['WarehouseBot', 'demo', '-1.5', '-4.0', '0.0'],
     #                    output='screen')
 
+
+    #---- spawn robot cart ------
+    urdf_file_name = 'urdf/cubeBot.gazebo.xacro'
+    print("urdf_file_name : {}".format(urdf_file_name))
+    urdf = os.path.join(
+      get_package_share_directory('uwbcart_ros'),
+      urdf_file_name)
+
+    cart = Node(
+            package='robot_state_publisher',
+            executable='robot_state_publisher',
+            name='robot_state_publisher',
+            output='screen',
+            parameters=[{'use_sim_time': use_sim_time}],
+            arguments=[urdf])
+
     return LaunchDescription([
         gazebo,
+        cart
      #   spawn_entity,
     ])
