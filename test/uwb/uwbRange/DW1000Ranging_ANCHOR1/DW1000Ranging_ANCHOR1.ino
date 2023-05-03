@@ -42,7 +42,7 @@ void setup() {
   DW1000.setNetworkId(10);
   DW1000.enableMode(DW1000.MODE_LONGDATA_RANGE_LOWPOWER);
   DW1000.commitConfiguration();
-  Serial.println(F("Committed configuration ..."));
+  Serial.println(F("New config wrote, devAddr=6, netId=10"));
 
   //---
   
@@ -52,6 +52,7 @@ void setup() {
 
   //---
   // DEBUG chip info and registers pretty printed
+  Serial.println(F("Read back settings...."));
   char msg[128];
   DW1000.getPrintableDeviceIdentifier(msg);
   Serial.print("Device ID: "); Serial.println(msg);
