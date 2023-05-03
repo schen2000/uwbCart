@@ -36,33 +36,40 @@ void setup() {
   
 
 // general configuration
-  DW1000.newConfiguration();
-  DW1000.setDefaults();
-  DW1000.setDeviceAddress(6);
-  DW1000.setNetworkId(10);
-  DW1000.enableMode(DW1000.MODE_LONGDATA_RANGE_LOWPOWER);
-  DW1000.commitConfiguration();
-  Serial.println(F("New config wrote, devAddr=6, netId=10"));
+  if(true)
+  {
+    DW1000.newConfiguration();
+    Serial.println(F("setDefaults() ..."));
+    DW1000.setDefaults();
+    delay(5);
+  }
 
-  //---
-  
+    Serial.println(F("setDefaults() done"));
+    DW1000.setDeviceAddress(6);
+    DW1000.setNetworkId(10);
+    DW1000.enableMode(DW1000.MODE_LONGDATA_RANGE_LOWPOWER);
+    DW1000.commitConfiguration();
+    Serial.println(F("Config committed, devAddr=6, netId=10 ..."));
+    //we start the module as an anchor
+    DW1000Ranging.startAsAnchor("82:17:5B:D5:A9:9A:E2:9C", DW1000.MODE_LONGDATA_RANGE_ACCURACY);
 
-  //we start the module as an anchor
-  DW1000Ranging.startAsAnchor("82:17:5B:D5:A9:9A:E2:9C", DW1000.MODE_LONGDATA_RANGE_ACCURACY);
-
+  //----
+  delay(2);
   //---
   // DEBUG chip info and registers pretty printed
-  Serial.println(F("Read back settings...."));
-  char msg[128];
-  DW1000.getPrintableDeviceIdentifier(msg);
-  Serial.print("Device ID: "); Serial.println(msg);
-  DW1000.getPrintableExtendedUniqueIdentifier(msg);
-  Serial.print("Unique ID: "); Serial.println(msg);
-  DW1000.getPrintableNetworkIdAndShortAddress(msg);
-  Serial.print("Network ID & Device Address: "); Serial.println(msg);
-  DW1000.getPrintableDeviceMode(msg);
-  Serial.print("Device mode: "); Serial.println(msg);
-
+  if(true)
+  {
+    Serial.println(F("Read back settings...."));
+    char msg[128];
+    DW1000.getPrintableDeviceIdentifier(msg);
+    Serial.print("Device ID: "); Serial.println(msg);
+    DW1000.getPrintableExtendedUniqueIdentifier(msg);
+    Serial.print("Unique ID: "); Serial.println(msg);
+    DW1000.getPrintableNetworkIdAndShortAddress(msg);
+    Serial.print("Network ID & Device Address: "); Serial.println(msg);
+    DW1000.getPrintableDeviceMode(msg);
+    Serial.print("Device mode: "); Serial.println(msg);
+  }
 }
 
 void loop() {
