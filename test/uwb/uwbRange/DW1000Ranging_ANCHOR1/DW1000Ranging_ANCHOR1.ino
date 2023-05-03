@@ -8,14 +8,23 @@
 #include <SPI.h>
 #include "DW1000Ranging.h"
 
-// connection pins
-const uint8_t PIN_RST = 7; // reset pin
-const uint8_t PIN_IRQ = 28; // irq pin
+//---- connection pins (Xiao rp2040)
+//const uint8_t PIN_RST = 7; // reset pin
+//const uint8_t PIN_IRQ = 28; // irq pin
+//const uint8_t PIN_SS = SS; // spi select pin
+
+//---- connection pins (Arduino Nano V3)
+const uint8_t PIN_RST = 9; // reset pin
+const uint8_t PIN_IRQ = 2; // irq pin
 const uint8_t PIN_SS = SS; // spi select pin
+
 
 void setup() {
   Serial.begin(115200);
   delay(2000);
+  Serial.println(F("DW1000 Anchor setup ..."));
+  Serial.print("PIN_SS :"); Serial.println(PIN_SS);
+
   //init the configuration
   DW1000Ranging.initCommunication(PIN_RST, PIN_SS, PIN_IRQ); //Reset, CS, IRQ pin
   //define the sketch as anchor. It will be great to dynamically change the type of module
