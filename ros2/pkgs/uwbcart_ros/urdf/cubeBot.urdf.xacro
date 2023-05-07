@@ -15,7 +15,7 @@
     <visual>
       <origin xyz="0 0 0.0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://uwbcart_ros/models/cubeBot/meshes/main.dae" scale="1 1 1"/>
+        <mesh filename="file://$(find uwbcart_ros)/models/cubeBot/meshes/main.dae" scale="1 1 1"/>
       </geometry>
     </visual>
     <collision>
@@ -48,7 +48,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="1.57 0 0"/>
       <geometry>
-        <mesh filename="package://uwbcart_ros/models/cubeBot/meshes/wheel.stl" scale="1 1 1"/>
+        <mesh filename="ile://$(find uwbcart_ros)/models/cubeBot/meshes/wheel.stl" scale="1 1 1"/>
       </geometry>
       <material name="dark"/>
     </visual>
@@ -80,7 +80,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="1.57 0 0"/>
       <geometry>
-        <mesh filename="package://uwbcart_ros/models/cubeBot/meshes/wheel.stl" scale="1 1 1"/>
+        <mesh filename="ile://$(find uwbcart_ros)/models/cubeBot/meshes/wheel.stl" scale="1 1 1"/>
       </geometry>
       <material name="dark"/>
     </visual>

@@ -4,9 +4,9 @@
 
 import os
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription
+from launch.actions import IncludeLaunchDescription,DeclareLaunchArgument
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import ThisLaunchFileDir,LaunchConfiguration
+from launch.substitutions import ThisLaunchFileDir,LaunchConfiguration, Command
 from launch_ros.actions import Node
 from launch.actions import ExecuteProcess
 from ament_index_python.packages import get_package_share_directory
@@ -36,23 +36,45 @@ def generate_launch_description():
     #                    output='screen')
 
 
-    #---- spawn robot cart ------
-    urdf_file_name = 'urdf/cubeBot.gazebo.xacro'
+  
+    #---- load urdf 1
+    urdf_file_name = 'urdf/cubeBot.urdf.xacro'
     print("urdf_file_name : {}".format(urdf_file_name))
-    urdf = os.path.join(
-      get_package_share_directory('uwbcart_ros'),
-      urdf_file_name)
+    urdf = os.path.join(pkg_dir, urdf_file_name)
+    #with open(urdf, 'r') as infp:
+    #    robot_desc = infp.read()
 
-    cart = Node(
+    #---- load urdf 2
+    xacro_path = urdf
+
+    #----- robot state
+        # ref : https://answers.ros.org/question/361623/ros2-robot_state_publisher-xacro-python-launch/
+    robot_state_node = Node(
             package='robot_state_publisher',
             executable='robot_state_publisher',
             name='robot_state_publisher',
             output='screen',
-            parameters=[{'use_sim_time': use_sim_time}],
-            arguments=[urdf])
+        #    parameters=[{'use_sim_time': use_sim_time, 'robot_description': robot_desc}],
+        #        arguments=[urdf])
+            parameters=[{'robot_description': Command(['xacro ', ' ', xacro_path])}]            
+            )
+    #----
+    #---- spawn robot cart ------
+    spawn_cart = Node(package='gazebo_ros', executable='spawn_entity.py',
+                        arguments=['-entity', 'cart', '-topic', '/robot_description'],
+                        output='screen')
 
+    #----- final return ----
     return LaunchDescription([
+        DeclareLaunchArgument(
+            'use_sim_time',
+            default_value='false',
+            description='Use simulation (Gazebo) clock if true'),
+        DeclareLaunchArgument(
+            'xacro_path',
+            default_value=None,
+            description='path to urdf.xacro file to publish'),                
         gazebo,
-        cart
-     #   spawn_entity,
+        robot_state_node,
+    #    spawn_cart
     ])
