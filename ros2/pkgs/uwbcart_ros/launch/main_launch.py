@@ -41,11 +41,11 @@ def generate_launch_description():
     urdf_file_name = 'urdf/cubeBot.urdf.xacro'
     print("urdf_file_name : {}".format(urdf_file_name))
     urdf = os.path.join(pkg_dir, urdf_file_name)
-    #with open(urdf, 'r') as infp:
-    #    robot_desc = infp.read()
+#    with open(urdf, 'r') as infp:
+#        robot_desc = infp.read()
 
     #---- load urdf 2
-    xacro_path = urdf
+    xacro_path = LaunchConfiguration('xacro_path', default=urdf)
 
     #----- robot state
         # ref : https://answers.ros.org/question/361623/ros2-robot_state_publisher-xacro-python-launch/
@@ -56,7 +56,7 @@ def generate_launch_description():
             output='screen',
         #    parameters=[{'use_sim_time': use_sim_time, 'robot_description': robot_desc}],
         #        arguments=[urdf])
-            parameters=[{'robot_description': Command(['xacro ', ' ', xacro_path])}]            
+            parameters=[{'robot_description': Command(['xacro ',  xacro_path])}]            
             )
     #----
     #---- spawn robot cart ------
@@ -70,11 +70,7 @@ def generate_launch_description():
             'use_sim_time',
             default_value='false',
             description='Use simulation (Gazebo) clock if true'),
-        DeclareLaunchArgument(
-            'xacro_path',
-            default_value=None,
-            description='path to urdf.xacro file to publish'),                
         gazebo,
         robot_state_node,
-    #    spawn_cart
+        spawn_cart
     ])
