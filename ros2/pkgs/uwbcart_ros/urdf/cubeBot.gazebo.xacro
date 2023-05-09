@@ -59,17 +59,18 @@
       <publishTf>true</publishTf>
       <publishWheelJointState>true</publishWheelJointState>
       <legacyMode>false</legacyMode>
-      <updateRate>30</updateRate>
-      <leftJoint>wheel_left_joint</leftJoint>
-      <rightJoint>wheel_right_joint</rightJoint>
-      <wheelSeparation>0.287</wheelSeparation>
-      <wheelDiameter>0.066</wheelDiameter>
-      <wheelAcceleration>1</wheelAcceleration>
-      <wheelTorque>10</wheelTorque>
+      <update_rate>30</update_rate>
+      <left_joint>wheel_left_joint</left_joint>
+      <right_joint>wheel_right_joint</right_joint>
+      <wheel_separation>0.287</wheel_separation>
+      <wheel_diameter>0.066</wheel_diameter>
+      <wheel_acceleration>1</wheel_acceleration>
+      <wheel_torque>10</wheel_torque>
       <rosDebugLevel>na</rosDebugLevel>
     </plugin>
   </gazebo>
 
+   <!--
   <gazebo>
     <plugin name="imu_plugin" filename="libgazebo_ros_imu.so">
       <alwaysOn>true</alwaysOn>
@@ -98,7 +99,7 @@
       </imu>
     </plugin>
   </gazebo>
-
+  -->
 
 <!--link  https://www.raspberrypi.org/documentation/hardware/camera/-->
   <gazebo reference="camera_rgb_frame">
