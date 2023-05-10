@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
-<robot name="cubeBot" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:include filename="$(find uwbcart_ros)/urdf/cubeBot_mat.xacro"/>
-  <xacro:include filename="$(find uwbcart_ros)/urdf/cubeBot.gazebo.xacro"/>
+<robot name="cart" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find uwbcart_ros)/urdf/cart_mat.xacro"/>
+  <xacro:include filename="$(find uwbcart_ros)/urdf/cart.gazebo.xacro"/>
 
   <link name="base_footprint"/>
 
@@ -15,7 +15,7 @@
     <visual>
       <origin xyz="0 0 0.0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="file://$(find uwbcart_ros)/models/cubeBot/meshes/main.dae" scale="1 1 1"/>
+        <mesh filename="file://$(find uwbcart_ros)/models/cart/meshes/main.dae" scale="1 1 1"/>
       </geometry>
     </visual>
     <collision>
@@ -48,7 +48,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="1.57 0 0"/>
       <geometry>
-        <mesh filename="file://$(find uwbcart_ros)/models/cubeBot/meshes/wheel.stl" scale="1 1 1"/>
+        <mesh filename="file://$(find uwbcart_ros)/models/cart/meshes/wheel.stl" scale="1 1 1"/>
       </geometry>
       <material name="dark"/>
     </visual>
@@ -80,7 +80,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="1.57 0 0"/>
       <geometry>
-        <mesh filename="file://$(find uwbcart_ros)/models/cubeBot/meshes/wheel.stl" scale="1 1 1"/>
+        <mesh filename="file://$(find uwbcart_ros)/models/cart/meshes/wheel.stl" scale="1 1 1"/>
       </geometry>
       <material name="dark"/>
     </visual>

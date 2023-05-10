@@ -38,7 +38,7 @@ def generate_launch_description():
 
   
     #---- load urdf 1
-    urdf_file_name = 'urdf/cubeBot.urdf.xacro'
+    urdf_file_name = 'urdf/cart.urdf.xacro'
     print("urdf_file_name : {}".format(urdf_file_name))
     urdf = os.path.join(pkg_dir, urdf_file_name)
 #    with open(urdf, 'r') as infp:
