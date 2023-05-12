@@ -8,15 +8,16 @@
 #include <SPI.h>
 #include "DW1000Ranging.h"
 
-// connection pins
-const uint8_t PIN_RST = D6; // reset pin
-const uint8_t PIN_IRQ = D2; // irq pin
-//const uint8_t PIN_SS = SS; // spi select pin
-const uint8_t PIN_SS = D7; // spi select pin
+//---- connection pins (Arduino Nano V3)
+const uint8_t PIN_RST = 9; // reset pin
+const uint8_t PIN_IRQ = 2; // irq pin
+const uint8_t PIN_SS = SS; // spi select pin
+
 
 void setup() {
   Serial.begin(115200);
-  delay(1000);
+  delay(2000);
+  Serial.println(F("DW1000 Tag setup ..."));
   //init the configuration
   DW1000Ranging.initCommunication(PIN_RST, PIN_SS, PIN_IRQ); //Reset, CS, IRQ pin
   //define the sketch as anchor. It will be great to dynamically change the type of module
@@ -33,7 +34,7 @@ void setup() {
   DW1000.setNetworkId(10);
   DW1000.enableMode(DW1000.MODE_LONGDATA_RANGE_LOWPOWER);
   DW1000.commitConfiguration();
-  Serial.println(F("Committed configuration ..."));
+  Serial.println(F("Committed configuration, devAddr=6, netId=10 ..."));
 
   //---
   // DEBUG chip info and registers pretty printed
@@ -50,6 +51,21 @@ void setup() {
 
   //we start the module as a tag
   DW1000Ranging.startAsTag("7D:00:22:EA:82:60:3B:9C", DW1000.MODE_LONGDATA_RANGE_ACCURACY);
+
+  // read back
+  if(true)
+  {
+    Serial.println(F("Read back settings...."));
+    char msg[128];
+    DW1000.getPrintableDeviceIdentifier(msg);
+    Serial.print("Device ID: "); Serial.println(msg);
+    DW1000.getPrintableExtendedUniqueIdentifier(msg);
+    Serial.print("Unique ID: "); Serial.println(msg);
+    DW1000.getPrintableNetworkIdAndShortAddress(msg);
+    Serial.print("Network ID & Device Address: "); Serial.println(msg);
+    DW1000.getPrintableDeviceMode(msg);
+    Serial.print("Device mode: "); Serial.println(msg);
+  }
 }
 
 void loop() {
