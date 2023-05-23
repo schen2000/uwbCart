@@ -2,7 +2,6 @@
 #include "json/json.h"
 
 using namespace cart;
-using namespace uwb;
 
 //----
 bool NavMng::Cfg::load(const string& sf)

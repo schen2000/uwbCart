@@ -5,7 +5,7 @@ namespace cart{
     using namespace ut;
     //-------
     // UWB S-series
-    namespace uwb
+    namespace uwbs
     {
         struct Frm
         {

@@ -26,6 +26,7 @@ namespace{
             { return uwbs_;  }
 
     protected:
+        socket::Client clnt_;
         MotorsTcp motors_;
         UWBsTcp uwbs_;
     };
@@ -45,6 +46,13 @@ Sp<Sys> Sys::create_client(const string& sHost, int port)
 //-----
 bool SysTcp::init()
 {
-    
-    return true;
+    log_i("SysTcp init...");
+    clnt_.connect(cfg_.sHost, cfg_.port);
+    if(clnt_.isConnected())
+    {
+        log_i("SysTcp connection ok");
+        return true;
+    }
+    log_e("SysTcp connection init failed.");
+    return false;
 }

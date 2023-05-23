@@ -13,7 +13,7 @@ namespace cart{
     public:
     };
     //---- hardware abstraction
-    class Sys{
+    class Sys : Cmd{
     public:
         struct Cfg{
 
@@ -24,6 +24,10 @@ namespace cart{
         virtual bool init()=0;
         virtual Motors& getMotors()=0;
         virtual UWBs& getUWBs()=0;
+
+    protected:
+        void init_cmds();
+        bool init(CStrs& args);
     };
 
 }
