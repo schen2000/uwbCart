@@ -1,11 +1,12 @@
 #include "cart/cart.h"
+#include "cart/uwb_JL.h"
 
 using namespace cart;
 
 void CartCmd::init_cmds()
 {
     //--- experiment JiuLing UWB-S series
-    Cmd::add("uwbs", mkSp<uwbs::UwbMng>());
+    Cmd::add("uwb_JL", mkSp<JL::UwbMng>());
     //---
     Cmd::add("emb", mkSp<emb::EmbCmd>());
     add("init", "sys=[tcp|hw] [host=HOST port=PORT]", 
