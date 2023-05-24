@@ -13,13 +13,14 @@ add_subdirectory(cartcpp)
 
 #-----
 include_directories( 
+    inc
     cartcpp/inc
     ${catkin_INCLUDE_DIRS} 
     $ENV{utLib_DIR}/inc
     $ENV{embLib_DIR}/inc
     )
 #---- cart node
-FILE(GLOB  SRC_CART_NODE *.cpp )
+FILE(GLOB  SRC_CART_NODE src/*.cpp )
 add_executable(uwbcart_node  ${SRC_CART_NODE} )
 #target_include_directories(uwbcart_node PUBLIC
 #  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
