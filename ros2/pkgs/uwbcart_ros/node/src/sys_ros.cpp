@@ -1,10 +1,8 @@
-#include "sys_sim.h"
+#include "sys_ros.h"
 
 using namespace cart;
 
 bool SysRos::init()
 {
-
+    return true;
 }
-Motors& SysRos::getMotors()
-UWBs& SysRos::getUWBs()

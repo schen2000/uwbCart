@@ -20,10 +20,10 @@ namespace{
         }; Cfg cfg_;
         virtual bool init()override;
 
-        virtual Motors& getMotors()override
-            { return motors_; }
-        virtual UWBs& getUWBs()override
-            { return uwbs_;  }
+   //     virtual Motors& getMotors()override
+    //        { return motors_; }
+   //     virtual UWBs& getUWBs()override
+     //       { return uwbs_;  }
 
     protected:
         socket::Client clnt_;

@@ -22,8 +22,8 @@ namespace cart{
         static Sp<Sys> create_client(const string& sHost, int port);
         //---
         virtual bool init()=0;
-        virtual Motors& getMotors()=0;
-        virtual UWBs& getUWBs()=0;
+     //   virtual Motors& getMotors()=0;
+     //   virtual UWBs& getUWBs()=0;
 
     protected:
         void init_cmds();

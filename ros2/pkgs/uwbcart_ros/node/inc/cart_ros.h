@@ -15,10 +15,16 @@
 #include "std_msgs/msg/string.hpp"
 
 namespace cart{
-    class CartNode : Cmd{
+    class CartNode : Cmd, public rclcpp::Node{
     public:
-        bool run();
+        CartNode();
+        using Node::Node;
+        //bool run();
     protected:
+        void init_cmds();
 
+        void timerCbk();
+        rclcpp::TimerBase::SharedPtr timer_;
+        rclcpp::Publisher<std_msgs::msg::String>::SharedPtr pub_msg_;
     };
 }
