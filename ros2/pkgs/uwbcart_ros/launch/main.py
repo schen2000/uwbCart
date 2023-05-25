@@ -63,6 +63,10 @@ def generate_launch_description():
     spawn_cart = Node(package='gazebo_ros', executable='spawn_entity.py',
                         arguments=['-entity', 'cart', '-topic', '/robot_description'],
                         output='screen')
+    #---- cart node
+    cart_node = Node(package='uwbcart_ros', executable='cart_node',
+                        arguments=['--server', '1666'],
+                        output='screen')
 
     #----- final return ----
     return LaunchDescription([
@@ -72,5 +76,6 @@ def generate_launch_description():
             description='Use simulation (Gazebo) clock if true'),
         gazebo,
         robot_state_node,
+        cart_node,
         spawn_cart
     ])

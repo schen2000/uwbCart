@@ -31,7 +31,7 @@ endif()
 add_subdirectory(node)
 
 
-install(TARGETS uwbcart_node
+install(TARGETS cart_node
   DESTINATION lib/${PROJECT_NAME})
 install(DIRECTORY launch urdf worlds models media
   DESTINATION share/${PROJECT_NAME})

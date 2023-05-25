@@ -21,14 +21,14 @@ include_directories(
     )
 #---- cart node
 FILE(GLOB  SRC_CART_NODE src/*.cpp )
-add_executable(uwbcart_node  ${SRC_CART_NODE} )
+add_executable(cart_node  ${SRC_CART_NODE} )
 #target_include_directories(uwbcart_node PUBLIC
 #  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 #  $<INSTALL_INTERFACE:include>)
 
-ament_target_dependencies(uwbcart_node rclcpp std_msgs)
+ament_target_dependencies(cart_node rclcpp std_msgs)
 
-target_link_libraries(uwbcart_node 
+target_link_libraries(cart_node 
     ${catkin_LIBRARIES}
     cartCore
     )

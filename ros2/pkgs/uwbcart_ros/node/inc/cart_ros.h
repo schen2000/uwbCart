@@ -9,8 +9,6 @@
 #pragma once
 
 #include "cart/cart.h"
-#include "sys_ros.h"
-
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
 

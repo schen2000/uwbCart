@@ -13,8 +13,9 @@ namespace cart{
     public:
     };
     //---- hardware abstraction
-    class Sys : Cmd{
+    class Sys : public Cmd{
     public:
+        using Cmd::Cmd;
         struct Cfg{
 
         }; Cfg cfg_;
