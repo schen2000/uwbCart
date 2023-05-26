@@ -1,3 +1,5 @@
+#pragma once
+
 #include "cart/sys.h"
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
@@ -30,7 +32,6 @@ namespace cart{
         UWBs_ros    uwbs_;
         Motors_ros  motors_;
 
-        rclcpp::Publisher<std_msgs::msg::String>::SharedPtr pub_log_;
 
     };
 }

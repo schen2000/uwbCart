@@ -10,6 +10,8 @@
 
 #include "cart/cart.h"
 #include "rclcpp/rclcpp.hpp"
+#include "sys_ros.h"
+
 #include "std_msgs/msg/string.hpp"
 
 namespace cart{
@@ -20,9 +22,10 @@ namespace cart{
         //bool run();
     protected:
         void init_cmds();
-
         void timerCbk();
         rclcpp::TimerBase::SharedPtr timer_;
-        rclcpp::Publisher<std_msgs::msg::String>::SharedPtr pub_msg_;
+        rclcpp::Publisher<std_msgs::msg::String>::SharedPtr pub_log_;
+        bool start_server();
+        std::thread thd_server_;
     };
 }

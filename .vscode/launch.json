@@ -5,10 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "cartApp",
+            "name": "cartCmd",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/cartApp",
+            "program": "${workspaceFolder}/build/cartcpp/cartCmd",
             "args_console":[],
             "args_mac": [
                 "uwb", "init", 

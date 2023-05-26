@@ -29,8 +29,8 @@ target_link_libraries(cartCore
 
 #--- app
 FILE(GLOB  SRC_APP src/app/*.cpp)
-add_executable(cartApp ${SRC_APP})
-target_link_libraries(cartApp   
+add_executable(cartCmd ${SRC_APP})
+target_link_libraries(cartCmd 
 	cartCore 
 	embLib
 	#-lpigpio

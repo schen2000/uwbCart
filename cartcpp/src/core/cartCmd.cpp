@@ -6,9 +6,9 @@ using namespace cart;
 void CartCmd::init_cmds()
 {
     //--- experiment JiuLing UWB-S series
-    Cmd::add("uwb_JL", mkSp<JL::UwbMng>());
+    //Cmd::add("uwb_JL", mkSp<JL::UwbMng>());
     //---
-    Cmd::add("emb", mkSp<emb::EmbCmd>());
+    //Cmd::add("emb", mkSp<emb::EmbCmd>());
     add("init", "sys=[tcp|hw] [host=HOST port=PORT]", 
     [&](CStrs& args)->bool
         {  return this->init(args); });
@@ -39,7 +39,7 @@ bool CartCmd::init(CStrs& args)
         return false;
     }
     
-
+    Cmd::add("sys", p_sys_);
     //---
     if(ok) log_i("CartCmd Init done");
     else log_e("CartCmd init failed");
