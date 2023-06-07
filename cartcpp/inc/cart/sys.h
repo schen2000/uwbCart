@@ -5,12 +5,14 @@ namespace cart{
     using namespace ut;
 
     //---
-    class UWBs{
+    class UWBs : Cmd{
     public:
     };
     //---
-    class Motors{
+    class Motors : Cmd{
     public:
+        // power -1 to 1
+        virtual bool setPwrs(double p0, double p1)=0;
     };
     //---- hardware abstraction
     class Sys : public Cmd{
@@ -23,10 +25,11 @@ namespace cart{
         static Sp<Sys> create_client(const string& sHost, int port);
         //---
         virtual bool init()=0;
-     //   virtual Motors& getMotors()=0;
-     //   virtual UWBs& getUWBs()=0;
 
     protected:
+        Sp<UWBs>    pUWBs = nullptr;
+        Sp<Motors>  pMotors = nullptr;
+
         void init_cmds();
         bool init(CStrs& args);
     };

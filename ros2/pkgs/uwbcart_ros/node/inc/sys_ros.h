@@ -12,6 +12,12 @@ namespace cart{
     };
     class Motors_ros : public Motors{
     public:
+        Motors_ros(rclcpp::Node& n):node_(n)
+        virtual bool setPwrs(double p0, double p1)override;
+    protected:
+        rclcpp::Publisher<std_msgs::msg::String>::SharedPtr pub_;
+        rclcpp::Node& node_;
+
     };
 
     //----
@@ -19,18 +25,15 @@ namespace cart{
     {
     public:
         SysRos(rclcpp::Node& n):node_(n)
-        {  init_ros(); }
+        {  init_cmds(); }
         using Sys::Sys;
         virtual bool init()override;
-    //    virtual Motors& SysRos::getMotors()override{ return motors_; }
-    //    virtual UWBs& SysRos::getUWBs()override{ return uwbs_; }
-
+    
+    
     protected:
         rclcpp::Node& node_;
-        void init_ros();
-
-        UWBs_ros    uwbs_;
-        Motors_ros  motors_;
+        void init_ros_node();
+        void init_cmds();
 
 
     };
