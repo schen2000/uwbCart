@@ -10,7 +10,7 @@ using namespace cart;
 namespace{
     struct LC{
         struct MotorCfg{
-            float turn_scl = 5;
+            float turn_scl = 10;
             float spd_scl = 2;
         }; MotorCfg motor_cfg;
     }; LC lc_;
@@ -27,8 +27,10 @@ bool Motors_ros::setPwrs(double p0, double p1)
     geometry_msgs::msg::Twist m;
     auto& mc = lc_.motor_cfg;
     double turn = (p0 - p1)*mc.turn_scl;
-    double spd = (p0+p1)* mc.spd_scl;
-
+    double spd  = (p0 + p1)*mc.spd_scl;
+    m.linear.x = spd;
+    m.angular.z = turn;
+    pub_->publish(m);
     return true;
 }
 

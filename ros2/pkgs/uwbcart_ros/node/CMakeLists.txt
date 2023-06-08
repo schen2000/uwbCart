@@ -30,7 +30,6 @@ add_executable(cart_node  ${SRC_CART_NODE} )
 
 ament_target_dependencies(cart_node geometry_msgs rclcpp std_msgs)
 
-
 target_link_libraries(cart_node 
     ${catkin_LIBRARIES}
     cartCore
