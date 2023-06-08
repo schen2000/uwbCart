@@ -27,8 +27,6 @@ namespace{
 
     protected:
         socket::Client clnt_;
-        MotorsTcp motors_;
-        UWBsTcp uwbs_;
     };
 }
 
