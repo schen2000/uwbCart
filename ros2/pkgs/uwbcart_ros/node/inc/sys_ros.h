@@ -3,21 +3,24 @@
 #include "cart/sys.h"
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
+#include <geometry_msgs/msg/twist.hpp>
 
 namespace cart{
 
     class UWBs_ros : public UWBs{
     public:
+        using UWBs::UWBs;
 
     };
     class Motors_ros : public Motors{
     public:
         Motors_ros(rclcpp::Node& n):node_(n)
+            { init_ros_node(); }
         virtual bool setPwrs(double p0, double p1)override;
     protected:
-        rclcpp::Publisher<std_msgs::msg::String>::SharedPtr pub_;
+        rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr pub_;
         rclcpp::Node& node_;
-
+        void init_ros_node();
     };
 
     //----

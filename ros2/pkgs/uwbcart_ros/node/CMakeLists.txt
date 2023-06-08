@@ -4,6 +4,8 @@ project(uwbcart_ros_node)
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+
 
 message(STATUS "utLb_DIR=$ENV{utLib_DIR}")
 
@@ -26,7 +28,8 @@ add_executable(cart_node  ${SRC_CART_NODE} )
 #  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 #  $<INSTALL_INTERFACE:include>)
 
-ament_target_dependencies(cart_node rclcpp std_msgs)
+ament_target_dependencies(cart_node geometry_msgs rclcpp std_msgs)
+
 
 target_link_libraries(cart_node 
     ${catkin_LIBRARIES}
