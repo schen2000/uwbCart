@@ -76,6 +76,6 @@ def generate_launch_description():
             description='Use simulation (Gazebo) clock if true'),
         gazebo,
         robot_state_node,
-        cart_node,
+        #cart_node,
         spawn_cart
     ])

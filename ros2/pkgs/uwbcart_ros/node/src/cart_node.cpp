@@ -29,7 +29,7 @@ CartNode::CartNode():Node("cart_node")
     500ms, std::bind(&CartNode::timerCbk, this));
     
     //--- start cmd server
-    start_server();
+    //start_server();
 
     //--- done
     RCLCPP_INFO_ONCE(this->get_logger(), "CartNode construct done.");
@@ -48,6 +48,7 @@ void CartNode::init_cmds()
     Cmd::add("sys", mkSp<SysRos>(*this));
 }
 //----
+/*
 bool CartNode::start_server()
 {
     thd_server_ = std::thread([&]{
@@ -58,6 +59,7 @@ bool CartNode::start_server()
     thd_server_.detach();
     return true;
 }
+*/
 
 
 //-----
@@ -65,6 +67,14 @@ int main(int argc, char ** argv)
 {
     rclcpp::init(argc, argv);
     auto node = std::make_shared<CartNode>();
-    rclcpp::spin(node);
-    rclcpp::shutdown();
+
+    //---- ros thread
+    auto ros_thd = std::thread([&](){
+        rclcpp::spin(node);
+        rclcpp::shutdown();
+    });
+    ros_thd.detach();
+
+    //---- run console
+    node->run(argc, argv);
 }

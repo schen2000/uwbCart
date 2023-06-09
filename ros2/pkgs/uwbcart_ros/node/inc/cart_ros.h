@@ -15,7 +15,7 @@
 #include "std_msgs/msg/string.hpp"
 
 namespace cart{
-    class CartNode : Cmd, public rclcpp::Node{
+    class CartNode : public Cmd, public rclcpp::Node{
     public:
         CartNode();
         using Node::Node;
@@ -25,7 +25,10 @@ namespace cart{
         void timerCbk();
         rclcpp::TimerBase::SharedPtr timer_;
         rclcpp::Publisher<std_msgs::msg::String>::SharedPtr pub_log_;
-        bool start_server();
-        std::thread thd_server_;
+
+        //----
+        //bool start_server();        
+        //std::thread thd_server_;
+
     };
 }
