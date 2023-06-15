@@ -4,8 +4,8 @@
 namespace cart{
     using namespace ut;
     //-------
-    // UWB S-series
-    namespace uwb
+    // UWB JiuLing S-series
+    namespace JL
     {
         struct Frm
         {

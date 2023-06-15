@@ -2,4 +2,4 @@
 source env.sh
 ./build.sh
 #ros2 launch uwbcart_ros bot_tinyroom.launch 
-ros2 launch uwbcart_ros main_launch.py
+ros2 launch uwbcart_ros main.py

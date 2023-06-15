@@ -1,7 +1,6 @@
 #pragma once
 #pragma once
 #include "cart/sys.h"
-#include "cart/uwb_s.h"
 #include "emb/embLib.h"
 
 namespace cart{
@@ -31,10 +30,12 @@ namespace cart{
     //-----------
     class CartCmd : public Cmd{
     public:
-        bool init();
+        CartCmd(){ init_cmds(); }
+
     protected:
-        void init_cmd();
-        Sp<uwb::UwbMng> p_uwb_ = mkSp<uwb::UwbMng>();
+        Sp<Sys> p_sys_ = nullptr;
+        void init_cmds();
+        bool init(CStrs& args);
     };
    
 }

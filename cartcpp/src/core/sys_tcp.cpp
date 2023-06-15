@@ -20,14 +20,13 @@ namespace{
         }; Cfg cfg_;
         virtual bool init()override;
 
-        virtual Motors& getMotors()override
-            { return motors_; }
-        virtual UWBs& getUWBs()override
-            { return uwbs_;  }
+   //     virtual Motors& getMotors()override
+    //        { return motors_; }
+   //     virtual UWBs& getUWBs()override
+     //       { return uwbs_;  }
 
     protected:
-        MotorsTcp motors_;
-        UWBsTcp uwbs_;
+        socket::Client clnt_;
     };
 }
 
@@ -45,6 +44,13 @@ Sp<Sys> Sys::create_client(const string& sHost, int port)
 //-----
 bool SysTcp::init()
 {
-    
-    return true;
+    log_i("SysTcp init...");
+    clnt_.connect(cfg_.sHost, cfg_.port);
+    if(clnt_.isConnected())
+    {
+        log_i("SysTcp connection ok");
+        return true;
+    }
+    log_e("SysTcp connection init failed.");
+    return false;
 }

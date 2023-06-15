@@ -11,9 +11,7 @@ int main(int argc, char ** argv)
     bool ok = true;
     
     CartCmd cmd; 
-    ok &= cmd.init();
-    if(ok)
-        ok &= cmd.run(argc, argv);
+    ok &= cmd.run(argc, argv);
     if(ok) log_i("  OK, done!");
     else log_e("Failed");
     return ok?0:1;
