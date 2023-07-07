@@ -6,6 +6,11 @@
  *  - give example description
  */
 #include <SPI.h>
+
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SH110X.h>
+
 #include "DW1000Ranging.h"
 
 //---- connection pins (Xiao rp2040)
@@ -18,7 +23,45 @@ const uint8_t PIN_RST = 9; // reset pin
 const uint8_t PIN_IRQ = 2; // irq pin
 const uint8_t PIN_SS = SS; // spi select pin
 
+//---- display
 
+/* Uncomment the initialize the I2C address , uncomment only one, If you get a totally blank screen try the other*/
+#define i2c_Address 0x3c //initialize with the I2C addr 0x3C Typically eBay OLED's
+//#define i2c_Address 0x3d //initialize with the I2C addr 0x3D Typically Adafruit OLED's
+
+#define SCREEN_WIDTH 128 // OLED display width, in pixels
+#define SCREEN_HEIGHT 64 // OLED display height, in pixels
+#define OLED_RESET -1   //   QT-PY / XIAO
+
+
+//Adafruit_SH1106G display = Adafruit_SH1106G(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
+
+
+/*
+//-----
+void init_display()
+{
+    display.begin(i2c_Address, true); // Address 0x3C default
+    //display.setContrast (0); // dim display
+  
+    display.display();
+    delay(2000);
+
+    // Clear the buffer.
+    display.clearDisplay();  
+
+    // text display tests
+  display.setTextSize(2);
+  display.setTextColor(SH110X_WHITE);
+  display.setCursor(0, 0);
+
+  //----
+  display.println("UWB anchor");
+
+}
+
+*/
+//-----
 void setup() {
   Serial.begin(115200);
   delay(2000);
@@ -57,19 +100,32 @@ void setup() {
   delay(2);
   //---
   // DEBUG chip info and registers pretty printed
+  char msg[128];
   if(true)
   {
     Serial.println(F("Read back settings...."));
-    char msg[128];
     DW1000.getPrintableDeviceIdentifier(msg);
     Serial.print("Device ID: "); Serial.println(msg);
     DW1000.getPrintableExtendedUniqueIdentifier(msg);
     Serial.print("Unique ID: "); Serial.println(msg);
-    DW1000.getPrintableNetworkIdAndShortAddress(msg);
-    Serial.print("Network ID & Device Address: "); Serial.println(msg);
     DW1000.getPrintableDeviceMode(msg);
     Serial.print("Device mode: "); Serial.println(msg);
   }
+  //---- display info
+  /*
+  if(true)
+  {
+    init_display();
+
+  
+    DW1000.getPrintableNetworkIdAndShortAddress(msg);
+    Serial.print("Network ID & Device Address: "); 
+    Serial.println(msg);
+    
+    Serial.print("NetID & DevAddr"); 
+    display.println(msg);
+  }
+  */
 }
 
 void loop() {
