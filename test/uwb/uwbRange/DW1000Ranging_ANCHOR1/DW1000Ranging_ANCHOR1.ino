@@ -11,14 +11,14 @@
 #include "DW1000Ranging.h"
 
 //---- connection pins (Xiao rp2040)
-//const uint8_t PIN_RST = 7; // reset pin
-//const uint8_t PIN_IRQ = 28; // irq pin
-//const uint8_t PIN_SS = SS; // spi select pin
+const uint8_t PIN_RST = 3; //7; // reset pin
+const uint8_t PIN_IRQ = 2; // 28; // irq pin
+const uint8_t PIN_SS = 7; //SS; // spi select pin
 
 //---- connection pins (Arduino Nano V3)
-const uint8_t PIN_RST = 9; // reset pin
-const uint8_t PIN_IRQ = 2; // irq pin
-const uint8_t PIN_SS = SS; // spi select pin
+//const uint8_t PIN_RST = 9; // reset pin
+//const uint8_t PIN_IRQ = 2; // irq pin
+//const uint8_t PIN_SS = SS; // spi select pin
 
 //---- display-------------
 GyverOLED<SSH1106_128x64> oled;
@@ -104,16 +104,16 @@ void setup() {
     DW1000.getPrintableDeviceMode(msg);
     Serial.print(F("Device mode: ")); Serial.println(msg);
   }
-  //---- display info
-  
-  if(true)
-  {
-    init_display();
 
   
-    DW1000.getPrintableNetworkIdAndShortAddress(msg);
-    Serial.print(F("Network ID & Device Address: ")); 
-    Serial.println(msg);
+  DW1000.getPrintableNetworkIdAndShortAddress(msg);
+  Serial.print(F("Network ID & Device Address: ")); 
+  Serial.println(msg);
+
+  //---- display info  
+  if(false)
+  {
+    init_display();
 
   // --------------------------
     oled.setCursor(1, 3);   // курсор в (пиксель X, строка Y)
