@@ -5,3 +5,7 @@
    * Open Blink1.ino, Serial.begin(115200)
    * Build/Flash, click reset button
    * Serial Monitor : 115200
+
+2023/07/08 :
+   * Arduino Nano 328P + UWB + GyverOLED , 
+     memory exceed to %117 
