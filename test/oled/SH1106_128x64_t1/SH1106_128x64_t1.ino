@@ -50,8 +50,8 @@ void setup()   {
 
   Serial.begin(9600);
   //-----
-  Wire.setSDA(6);
-  Wire.setSCL(7);
+  Wire.setSDA(SDA1);
+  Wire.setSCL(SCL1);
   
   Adafruit_SH1106G display = Adafruit_SH1106G(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
