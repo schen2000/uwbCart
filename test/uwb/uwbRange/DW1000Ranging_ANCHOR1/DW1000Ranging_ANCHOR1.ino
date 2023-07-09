@@ -5,15 +5,23 @@
  *  - fix deprecated convertation form string to char* startAsAnchor
  *  - give example description
  */
+
+
+
 #include <SPI.h>
 #include <Wire.h>
 #include <GyverOLED.h>
 #include "DW1000Ranging.h"
 
 //---- connection pins (Xiao rp2040)
-const uint8_t PIN_RST = 3; //7; // reset pin
-const uint8_t PIN_IRQ = 2; // 28; // irq pin
-const uint8_t PIN_SS = 7; //SS; // spi select pin
+//const uint8_t PIN_RST = 3; //7; // reset pin
+//const uint8_t PIN_IRQ = 2; // 28; // irq pin
+//const uint8_t PIN_SS = 7; //SS; // spi select pin
+
+//---- connection pins (Esp32)
+const uint8_t PIN_RST = 34; //7; // reset pin
+const uint8_t PIN_IRQ = 35; // 28; // irq pin
+const uint8_t PIN_SS = SS; //SS; // spi select pin
 
 //---- connection pins (Arduino Nano V3)
 //const uint8_t PIN_RST = 9; // reset pin
@@ -111,7 +119,7 @@ void setup() {
   Serial.println(msg);
 
   //---- display info  
-  if(false)
+  if(true)
   {
     init_display();
 

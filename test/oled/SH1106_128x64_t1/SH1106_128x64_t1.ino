@@ -22,8 +22,8 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SH110X.h>
 
-#define SDA1 27
-#define SCL1 28
+//#define SDA1 27
+//#define SCL1 28
 
 /* Uncomment the initialize the I2C address , uncomment only one, If you get a totally blank screen try the other*/
 #define i2c_Address 0x3c //initialize with the I2C addr 0x3C Typically eBay OLED's
@@ -48,12 +48,16 @@
 
 void setup()   {
 
-  Serial.begin(9600);
-  //-----
-  Wire1.setSDA(SDA1);
-  Wire1.setSCL(SCL1);
+  Serial.begin(115200);
+  delay(1000);
   
-  Adafruit_SH1106G display = Adafruit_SH1106G(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire1, OLED_RESET);
+  //-----
+  Serial.print("SDA="); Serial.print(SDA);
+  Serial.print("SCL="); Serial.print(SCL);
+ // Wire1.setSDA(SDA1);
+ // Wire1.setSCL(SCL1);
+  
+  Adafruit_SH1106G display = Adafruit_SH1106G(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
   //-----
   // Show image buffer on the display hardware.
