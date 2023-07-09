@@ -30,6 +30,11 @@
 
 // the setup function runs once when you press reset or power the board
 void setup() {
+  Serial.begin(115200);
+  delay(1000);
+  Serial.println(F("esp32 blink.."));
+
+  //---
   // initialize digital pin LED_BUILTIN as an output.
   pinMode(LED_BUILTIN, OUTPUT);
 }
@@ -37,7 +42,10 @@ void setup() {
 // the loop function runs over and over again forever
 void loop() {
   digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on (HIGH is the voltage level)
-  delay(200);                      // wait for a second
+  Serial.println(F("H"));
+  delay(100);                      // wait for a second
+
   digitalWrite(LED_BUILTIN, LOW);   // turn the LED off by making the voltage LOW
-  delay(200);                      // wait for a second
+  Serial.println(F("L"));
+  delay(100);                      // wait for a second
 }
