@@ -21,7 +21,7 @@
 //---- connection pins (Esp32)
 const uint8_t PIN_RST = 34; //7; // reset pin
 const uint8_t PIN_IRQ = 35; // 28; // irq pin
-const uint8_t PIN_SS = SS; //SS; // spi select pin
+const uint8_t PIN_SS = 33; //SS; // spi select pin
 
 //---- connection pins (Arduino Nano V3)
 //const uint8_t PIN_RST = 9; // reset pin
