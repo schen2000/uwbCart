@@ -124,9 +124,17 @@ void setup() {
     init_display();
 
   // --------------------------
-    oled.setCursor(1, 3);   // курсор в (пиксель X, строка Y)
-    oled.setScale(2);
+    oled.setCursor(1, 3);   
+    oled.setScale(1);
     oled.print(msg);
+
+    oled.setCursor(1, 5);   
+    oled.setScale(1);
+    DW1000.getPrintableExtendedUniqueIdentifier(msg);
+    oled.print(msg);
+
+
+
     oled.update();    
 
   }
