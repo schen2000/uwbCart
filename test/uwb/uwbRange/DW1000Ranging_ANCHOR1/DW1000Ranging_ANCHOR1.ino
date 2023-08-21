@@ -55,7 +55,7 @@ void init_display()
   // --------------------------
   oled.setCursor(5, 1);   // курсор в (пиксель X, строка Y)
   oled.setScale(2);
-  oled.print(F("UWB!"));
+  oled.print(F("UWB Anchor"));
   oled.update();
   delay(2000);
 
