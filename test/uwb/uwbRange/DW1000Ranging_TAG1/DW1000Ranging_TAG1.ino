@@ -89,8 +89,9 @@ void setup() {
   DW1000.setDeviceAddress(6);
   DW1000.setNetworkId(10);
 
-  // MODE_LONGDATA_RANGE_ACCURACY or MODE_LONGDATA_RANGE_LOWPOWER
-  DW1000.enableMode(DW1000.MODE_LONGDATA_RANGE_ACCURACY);
+//DW1000.enableMode(DW1000.MODE_LONGDATA_RANGE_ACCURACY);
+  DW1000.enableMode(DW1000.MODE_LONGDATA_RANGE_LOWPOWER);
+  
   DW1000.commitConfiguration();
   Serial.println(F("Committed configuration, devAddr=6, netId=10 ..."));
 
