@@ -22,6 +22,7 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SH110X.h>
 
+// For Esp32, default SDA/SCL is 21/22
 //#define SDA1 27
 //#define SCL1 28
 
